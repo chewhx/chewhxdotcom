@@ -7,8 +7,10 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'amazonaws.com',
-        port: '',
-        pathname: '',
+      },
+      {
+        protocol: 'https',
+        hostname: 'books.google.com',
       },
     ],
   },

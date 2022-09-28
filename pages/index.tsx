@@ -8,14 +8,16 @@ import { tools } from '../data/tools';
 import { getGitHubRepo } from '../lib/octokit';
 import { getDatabase } from '../lib/notion';
 import Scribbles from '../components/Scribbles';
+import Books from '../components/Books';
 
 interface Props {
   tools: any[];
   projects: any[];
   scribbles: any[];
+  books: any[];
 }
 
-const Home: NextPage<Props> = ({ tools, projects, scribbles }) => {
+const Home: NextPage<Props> = ({ tools, projects, scribbles, books }) => {
   return (
     <>
       <Brand />
@@ -23,6 +25,7 @@ const Home: NextPage<Props> = ({ tools, projects, scribbles }) => {
       <Tools repos={tools} />
       <Projects repos={projects} />
       <Scribbles posts={scribbles} />
+      <Books books={books} />
     </>
   );
 };
@@ -42,11 +45,36 @@ export async function getStaticProps() {
     process.env.NOTION_SCRIBBLES_DB_ID || ''
   );
 
+  const _books = await await getDatabase(
+    process.env.NOTION_BOOKNOTES_DB_ID || '',
+    {
+      filter: {
+        and: [
+          {
+            property: 'Published',
+            type: 'checkbox',
+            checkbox: {
+              equals: true,
+            },
+          },
+          {
+            type: 'multi_select',
+            property: 'Media',
+            multi_select: {
+              contains: 'Book',
+            },
+          },
+        ],
+      },
+    }
+  );
+
   return {
     props: {
       tools: _tools,
       projects: _projects,
       scribbles: _scribbles,
+      books: _books,
     },
     revalidate: 60,
   };

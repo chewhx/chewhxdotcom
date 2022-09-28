@@ -4,6 +4,33 @@ html {
   letter-spacing: 0.02em;
 }
 
-article > img {
-  width: 100%;
+article {
+  line-height: 1.8;
+
+  & > img {
+    width: 100%;
+  }
+
+  & > blockquote {
+    font-size: 1.35rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding-left: 1rem;
+    margin-block: 4rem;
+    font-style: italic;
+    border-left: 4px solid #e3e3e3;
+  }
+
+  & > p:has(span.rnr-yellow_background) {
+    line-height: 1.4;
+  }
+}
+
+.rnr-yellow_background {
+  background-color: #fff3bf;
+}
+
+.rnr-callout {
+  border: 1px solid black;
 }
