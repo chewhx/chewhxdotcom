@@ -3,7 +3,12 @@ import { NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
 import RenderNotion from '../../components/RenderNotion';
-import { getBlocks, getDatabase, getPage } from '../../lib/notion';
+import {
+  getBlocks,
+  getBookPages,
+  getDatabase,
+  getPage,
+} from '../../lib/notion';
 
 interface Props {
   page: any;
@@ -23,19 +28,19 @@ const BookNotes: NextPage<Props> = ({ page, blocks }) => {
           }}
         >
           <Image
-            src={page.cover.external.url}
-            alt={page.properties.Name.title[0].plain_text}
+            src={page?.cover?.external?.url}
+            alt={page?.properties?.Name?.title[0]?.plain_text}
             layout='fill'
           />
         </Box>
         <Text size='xl' my='sm' weight={900} align='center'>
           {page?.properties?.Name?.title[0].plain_text}
         </Text>
-        <Text>by {page.properties.Author.rich_text[0].plain_text}</Text>
+        <Text>by {page?.properties?.Author?.rich_text[0]?.plain_text}</Text>
       </Box>
       <article>
         <RenderNotion
-          blocks={blocks.results.filter(
+          blocks={blocks?.results?.filter(
             (e: any) => !e.type.startsWith('table')
           )}
         />
@@ -47,7 +52,7 @@ const BookNotes: NextPage<Props> = ({ page, blocks }) => {
 export default BookNotes;
 
 export async function getStaticPaths() {
-  const db = await getDatabase(process.env.NOTION_BOOKNOTES_DB_ID || '');
+  const db = await getBookPages(process.env.NOTION_BOOKNOTES_DB_ID || '');
   return {
     paths: db.map((page) => ({ params: { id: page.id } })),
     fallback: true,

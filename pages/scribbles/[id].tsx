@@ -31,7 +31,7 @@ const Scribble: NextPage<Props> = ({ page, blocks }) => {
         )}
       </Box>
       <Box component='article'>
-        <RenderNotion blocks={blocks.results} />
+        <RenderNotion blocks={blocks?.results} />
       </Box>
     </Box>
   );

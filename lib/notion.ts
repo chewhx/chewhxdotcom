@@ -25,6 +25,31 @@ export const getDatabase = async (
   return res.results;
 };
 
+export const getBookPages = async (databaseId: string) => {
+  const res = await getDatabase(databaseId, {
+    filter: {
+      and: [
+        {
+          property: 'Published',
+          type: 'checkbox',
+          checkbox: {
+            equals: true,
+          },
+        },
+        {
+          type: 'multi_select',
+          property: 'Media',
+          multi_select: {
+            contains: 'Book',
+          },
+        },
+      ],
+    },
+  });
+
+  return res;
+};
+
 export const getPage = async (pageId: string) => {
   const res = await notion.pages.retrieve({
     page_id: pageId,
