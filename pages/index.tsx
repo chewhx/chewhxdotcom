@@ -6,7 +6,6 @@ import Tools from '../components/Tools';
 import { projects } from '../data/projects';
 import { tools } from '../data/tools';
 import { getGitHubRepo } from '../lib/octokit';
-import AppContainer from '../layout/AppContainer';
 import { getDatabase } from '../lib/notion';
 import Scribbles from '../components/Scribbles';
 
@@ -18,14 +17,13 @@ interface Props {
 
 const Home: NextPage<Props> = ({ tools, projects, scribbles }) => {
   return (
-    <AppContainer>
+    <>
       <Brand />
       <About />
       <Tools repos={tools} />
       <Projects repos={projects} />
       <Scribbles posts={scribbles} />
-      <h1>Hello</h1>
-    </AppContainer>
+    </>
   );
 };
 
