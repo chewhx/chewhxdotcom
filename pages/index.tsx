@@ -45,29 +45,26 @@ export async function getStaticProps() {
     process.env.NOTION_SCRIBBLES_DB_ID || ''
   );
 
-  const _books = await await getDatabase(
-    process.env.NOTION_BOOKNOTES_DB_ID || '',
-    {
-      filter: {
-        and: [
-          {
-            property: 'Published',
-            type: 'checkbox',
-            checkbox: {
-              equals: true,
-            },
+  const _books = await getDatabase(process.env.NOTION_BOOKNOTES_DB_ID || '', {
+    filter: {
+      and: [
+        {
+          property: 'Published',
+          type: 'checkbox',
+          checkbox: {
+            equals: true,
           },
-          {
-            type: 'multi_select',
-            property: 'Media',
-            multi_select: {
-              contains: 'Book',
-            },
+        },
+        {
+          type: 'multi_select',
+          property: 'Media',
+          multi_select: {
+            contains: 'Book',
           },
-        ],
-      },
-    }
-  );
+        },
+      ],
+    },
+  });
 
   return {
     props: {

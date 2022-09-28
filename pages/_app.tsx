@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>chewhx.com - Chew Han Xiang - Software Developer</title>
+        <title>Chew Han Xiang - chewhx.com</title>
         <meta name='description' content='Personal site of Chew Han Xiang' />
         <link rel='icon' href='favicon/favicon.ico' />
         <link rel='shortcut icon' href='favicon/favicon.ico' />

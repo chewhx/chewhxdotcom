@@ -13,7 +13,6 @@ interface Props {
 const BookNotes: NextPage<Props> = ({ page, blocks }) => {
   return (
     <Box sx={{ maxWidth: '700px' }}>
-      {/* <pre>{JSON.stringify(blocks, null, 2)}</pre> */}
       <Box sx={{ textAlign: 'center' }}>
         <Box
           sx={{

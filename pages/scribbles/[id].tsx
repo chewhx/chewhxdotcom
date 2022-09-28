@@ -1,4 +1,3 @@
-import { Render } from '@9gustin/react-notion-render';
 import { Box, Container, Text } from '@mantine/core';
 import dayjs from 'dayjs';
 import { NextPage } from 'next';
