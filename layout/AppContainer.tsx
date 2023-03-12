@@ -5,11 +5,9 @@ import Navbar from './Navbar';
 
 const AppContainer: React.FC<PropsWithChildren> = ({ children }) => {
   return (
-    <Container style={{ maxWidth: '850px' }}>
+    <Container style={{ maxWidth: '1400px', width: '100vw' }} px='lg'>
       <Navbar />
-      <Box component='main' sx={{ minHeight: 'calc(100vh - 45.8px - 200px)' }}>
-        {children}
-      </Box>
+      <Box component='main'>{children}</Box>
       <Footer />
     </Container>
   );

@@ -12,28 +12,19 @@ interface Props {
 
 const Scribble: NextPage<Props> = ({ page, blocks }) => {
   return (
-    <Box sx={{ margin: '0 auto', padding: '1em 0' }}>
+    <Container sx={{ margin: '0 auto', padding: '1em 0' }}>
       <Box sx={{ textAlign: 'center' }}>
         <Text size='lg' weight={500} align='center'>
           {dayjs(page?.updated_time).format('DD MMM YYYY')}
         </Text>
-        <Text sx={{ fontSize: '3.5rem' }} py='xl' align='center'>
+        <Text weight={600} size={25} py='xl' align='center'>
           {page?.properties?.Name?.title[0].plain_text}
         </Text>
-        {page?.properties?.Tags?.multi_select && (
-          <>
-            {page?.properties?.Tags?.multi_select.map((e: any) => (
-              <Text component='span' key={e.name}>
-                On {e.name + ', '}
-              </Text>
-            ))}
-          </>
-        )}
       </Box>
       <Box component='article'>
         <RenderNotion blocks={blocks?.results} />
       </Box>
-    </Box>
+    </Container>
   );
 };
 
