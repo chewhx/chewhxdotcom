@@ -1,30 +1,20 @@
-import { ActionIcon, Anchor, Box, Group, Stack, Text } from '@mantine/core';
-import React from 'react';
-import { socials } from '../data/socials';
+import { Box, Breadcrumbs, Flex, Text } from '@mantine/core';
+import { Plus } from 'tabler-icons-react';
 
 const Brand = () => {
   return (
-    <Group style={{ margin: '1.5em 0 ' }}>
-      <Stack spacing={0} justify='center'>
-        <h1 style={{ fontSize: '3rem', fontWeight: 600, margin: 0 }}>
+    <Flex h={400} align='center'>
+      <Box>
+        <Text size='1.75rem' weight={500} sx={{ letterSpacing: '-0.03em' }}>
           Chew Han Xiang
-        </h1>
-        <Text sx={{ fontSize: '1.55rem' }} weight={500}>
-          Software Engineer, Generalist, INTJ
         </Text>
-        <Group my='md'>
-          {socials.map(({ label, link, icon }) => (
-            <Box key={label}>
-              <Anchor href={link} target='_blank' rel='noopener noreferrer'>
-                <ActionIcon size='lg' radius='md' variant='light'>
-                  {icon}
-                </ActionIcon>
-              </Anchor>
-            </Box>
-          ))}
-        </Group>
-      </Stack>
-    </Group>
+        <Breadcrumbs separator='+'>
+          <Text size='xl' color='gray' sx={{ letterSpacing: '-0.03em' }}>
+            Software Engineer
+          </Text>
+        </Breadcrumbs>
+      </Box>
+    </Flex>
   );
 };
 

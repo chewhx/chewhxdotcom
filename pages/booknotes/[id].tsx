@@ -1,4 +1,4 @@
-import { Box, Spoiler, Text } from '@mantine/core';
+import { Box, Container, Text } from '@mantine/core';
 import { NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
@@ -17,7 +17,7 @@ interface Props {
 
 const BookNotes: NextPage<Props> = ({ page, blocks }) => {
   return (
-    <Box sx={{ maxWidth: '700px' }}>
+    <Container>
       <Box sx={{ textAlign: 'center' }}>
         <Box
           sx={{
@@ -45,7 +45,7 @@ const BookNotes: NextPage<Props> = ({ page, blocks }) => {
           )}
         />
       </article>
-    </Box>
+    </Container>
   );
 };
 

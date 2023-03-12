@@ -1,7 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
 html {
-  letter-spacing: 0.02em;
+  letter-spacing: -0.03em;
 }
 
 article {
@@ -33,4 +31,43 @@ article {
 
 .rnr-callout {
   border: 1px solid black;
+}
+
+// Masonry
+
+.my-masonry-grid {
+  display: -webkit-box; /* Not needed if autoprefixing */
+  display: -ms-flexbox; /* Not needed if autoprefixing */
+  display: flex;
+  margin-left: -60px; /* gutter size offset */
+  width: auto;
+}
+.my-masonry-grid_column {
+  padding-left: 60px; /* gutter size */
+  background-clip: padding-box;
+}
+
+/* Style your items */
+.my-masonry-grid_column {
+  & > div {
+    /* change div to reference your elements you put in <Masonry> */
+    background: grey;
+    margin-bottom: 60px;
+  }
+
+  & > span {
+    /* change div to reference your elements you put in <Masonry> */
+    margin-bottom: 60px !important;
+    transition: all 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+    filter: grayscale(1);
+
+    &:hover {
+      transform: scale(1.2);
+      filter: grayscale(0);
+    }
+
+    & img {
+      transition: all 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+  }
 }

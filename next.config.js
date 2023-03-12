@@ -12,6 +12,14 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'books.google.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'im.vsco.co',
+      },
+      {
+        protocol: 'https',
+        hostname: 's3.*.amazonaws.com',
+      },
     ],
   },
 };
