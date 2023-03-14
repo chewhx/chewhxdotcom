@@ -91,7 +91,7 @@ const Works = ({ works: repos }: Props) => {
                   <Grid.Col xs={12} md={6}>
                     <Stack spacing='xl'>
                       {images?.map(
-                        (e: { name: string; file: { url: string } }) => (
+                        (e: { name: string; external: { url: string } }) => (
                           <Image
                             key={e.name}
                             sx={{
@@ -103,7 +103,7 @@ const Works = ({ works: repos }: Props) => {
                             alt={title}
                             fit='cover'
                             width='100%'
-                            src={e.file.url}
+                            src={e.external.url}
                             radius='sm'
                           />
                         )
