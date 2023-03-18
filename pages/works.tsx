@@ -43,7 +43,6 @@ const Works = ({ works: repos }: Props) => {
           const excerpt =
             data?.properties?.Excerpt?.rich_text?.at(0)?.plain_text;
           const type = data?.properties?.Type?.rich_text?.at(0)?.plain_text;
-          const image = data?.properties?.Cover?.files?.at(0)?.file?.url;
           const images = data?.properties?.Cover?.files;
           const year = data?.properties?.Year?.number?.toString();
           const source = data?.properties?.Source?.url;
