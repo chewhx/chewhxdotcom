@@ -39,10 +39,9 @@ const Works = ({ works: repos }: Props) => {
         chevronPosition='left'
       >
         {repos?.map((data) => {
-          const title = data?.properties?.Name?.title?.at(0)?.plain_text;
-          const excerpt =
-            data?.properties?.Excerpt?.rich_text?.at(0)?.plain_text;
-          const type = data?.properties?.Type?.rich_text?.at(0)?.plain_text;
+          const title = data?.properties?.Name?.title[0]['plain_text'];
+          const excerpt = data?.properties?.Excerpt?.rich_text[0]['plain_text'];
+          const type = data?.properties?.Type?.rich_text[0]['plain_text'];
           const images = data?.properties?.Cover?.files;
           const year = data?.properties?.Year?.number?.toString();
           const source = data?.properties?.Source?.url;
