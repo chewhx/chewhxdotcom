@@ -1,6 +1,6 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
-import '../styles/index.scss';
+import '../styles/index.css';
 import AppContainer from '../layout/AppContainer';
 import ThemeProvider from '../providers/ThemeProvider';
 
