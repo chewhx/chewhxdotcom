@@ -1,15 +1,14 @@
-import { Box, Container } from '@mantine/core';
 import React, { PropsWithChildren } from 'react';
+import Brand from '../components/Brand';
 import Footer from './Footer';
-import Navbar from './Navbar';
 
 const AppContainer: React.FC<PropsWithChildren> = ({ children }) => {
   return (
-    <Container style={{ maxWidth: '1400px', width: '100vw' }} px='lg'>
-      <Navbar />
-      <Box component='main'>{children}</Box>
+    <div className='max-w-[1200px] mx-auto px-10'>
+      <Brand />
+      <main>{children}</main>
       <Footer />
-    </Container>
+    </div>
   );
 };
 

@@ -2,35 +2,35 @@ import { PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
 import { GetStaticProps } from 'next';
 import { getDatabase } from '../lib/notion';
 
-const Works = ({ works }: { works: PageObjectResponse[] }) => {
+const Projects = ({ projects }: { projects: PageObjectResponse[] }) => {
   return (
     <>
-      <p className='text-xl text-center text-muted-foreground py-8'>Works</p>
+      <p className='text-xl text-center text-muted-foreground py-8'>Projects</p>
       <div>
-        {works?.map((work) => {
+        {projects?.map((project) => {
           const title =
-            work.properties?.Name?.type === 'title'
-              ? work.properties?.Name?.title[0]?.plain_text
+            project.properties?.Name?.type === 'title'
+              ? project.properties?.Name?.title[0]['plain_text']
               : null;
 
           const description =
-            work.properties.Description?.type === 'rich_text'
-              ? work?.properties?.Description?.rich_text[0]?.plain_text
+            project.properties.Description?.type === 'rich_text'
+              ? project?.properties?.Description?.rich_text[0]['plain_text']
               : null;
 
           const technologies =
-            work.properties.Technologies?.type === 'rich_text'
-              ? work?.properties?.Technologies?.rich_text[0]?.plain_text
+            project.properties.Technologies?.type === 'rich_text'
+              ? project?.properties?.Technologies?.rich_text[0]['plain_text']
               : null;
 
           const link =
-            work.properties.Link?.type === 'url'
-              ? work?.properties?.Link?.url
+            project.properties.Link?.type === 'url'
+              ? project?.properties?.Link?.url
               : null;
 
           return (
             <div
-              key={work.id}
+              key={project.id}
               className='grid md:grid-cols-12 py-4 w-full items-center [&:not(:last-child)]:border-b gap-1'
             >
               <div className='col-span-4'>
@@ -62,10 +62,10 @@ const Works = ({ works }: { works: PageObjectResponse[] }) => {
   );
 };
 
-export default Works;
+export default Projects;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const works = await getDatabase(process.env.NOTION_WORKS_DB_ID || '', {
+  const projects = await getDatabase(process.env.NOTION_PROJECTS_DB_ID || '', {
     sorts: [
       {
         property: 'Number',
@@ -76,7 +76,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: {
-      works,
+      projects,
     },
     revalidate: 60,
   };

@@ -1,4 +1,3 @@
-import { Text } from '@mantine/core';
 import { useRouter } from 'next/router';
 import React from 'react';
 
@@ -9,7 +8,7 @@ const NotFound = () => {
   }, [router]);
   return (
     <>
-      <Text>404 Not Found</Text>
+      <p>404 Not Found</p>
     </>
   );
 };
