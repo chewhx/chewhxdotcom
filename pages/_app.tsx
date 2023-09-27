@@ -1,8 +1,8 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
-import '../styles/index.scss';
+import '../styles/index.css';
 import AppContainer from '../layout/AppContainer';
-import ThemeProvider from '../providers/ThemeProvider';
+import { ThemeProvider } from '../components/ui/theme-provider';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -30,7 +30,12 @@ function MyApp({ Component, pageProps }: AppProps) {
           href='favicon/favicon-16x16.png'
         />
       </Head>
-      <ThemeProvider>
+      <ThemeProvider
+        attribute='class'
+        defaultTheme='system'
+        enableSystem
+        disableTransitionOnChange
+      >
         <AppContainer>
           <Component {...pageProps} />
         </AppContainer>
