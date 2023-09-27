@@ -16,11 +16,6 @@ const Projects = ({ projects }: { projects: PageObjectResponse[] }) => {
             ? project?.properties?.Description?.rich_text[0]['plain_text']
             : null;
 
-        const technologies =
-          project.properties.Technologies?.type === 'rich_text'
-            ? project?.properties?.Technologies?.rich_text[0]['plain_text']
-            : null;
-
         const link =
           project.properties.Link?.type === 'url'
             ? project?.properties?.Link?.url
