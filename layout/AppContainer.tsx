@@ -4,7 +4,7 @@ import Footer from './Footer';
 
 const AppContainer: React.FC<PropsWithChildren> = ({ children }) => {
   return (
-    <div className='max-w-[1200px] mx-auto px-10'>
+    <div className='max-w-2xl mx-auto px-10'>
       <Brand />
       <main>{children}</main>
       <Footer />

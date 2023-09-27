@@ -2,6 +2,7 @@ import { AppProps } from 'next/app';
 import Head from 'next/head';
 import '../styles/index.css';
 import AppContainer from '../layout/AppContainer';
+import { ThemeProvider } from '../components/ui/theme-provider';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -29,9 +30,16 @@ function MyApp({ Component, pageProps }: AppProps) {
           href='favicon/favicon-16x16.png'
         />
       </Head>
-      <AppContainer>
-        <Component {...pageProps} />
-      </AppContainer>
+      <ThemeProvider
+        attribute='class'
+        defaultTheme='system'
+        enableSystem
+        disableTransitionOnChange
+      >
+        <AppContainer>
+          <Component {...pageProps} />
+        </AppContainer>
+      </ThemeProvider>
     </>
   );
 }
