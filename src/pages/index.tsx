@@ -29,6 +29,11 @@ const projects: Array<{
   description: string;
 }> = [
   {
+    title: 'ui-avatar-emoji',
+    link: 'https://github.com/chewhx/ui-avatar-emoji',
+    description: 'Generate an avatar with Apple Color Emoji',
+  },
+  {
     title: 'Google Books API Wrapper',
     link: 'https://www.npmjs.com/package/@chewhx/google-books',
     description: 'JS Wrapper for Google Books API',
