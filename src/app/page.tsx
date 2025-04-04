@@ -1,103 +1,79 @@
-import Image from "next/image";
+import AnimatedIconButton from "@/components/animated-icon-button";
+import {
+  GalleryVerticalEndIcon,
+  GalleryVerticalIcon,
+  NotebookIcon,
+  NotebookTextIcon,
+  PackageIcon,
+  PackageOpenIcon,
+} from "lucide-react";
+
+const links: {
+  icon?: React.ElementType;
+  hoverIcon?: React.ElementType;
+  label: string;
+  href: string;
+}[] = [
+  {
+    icon: GalleryVerticalEndIcon,
+    hoverIcon: GalleryVerticalIcon,
+    label: "demos",
+    href: "https://demos.chewhx.com/",
+  },
+  {
+    icon: NotebookIcon,
+    hoverIcon: NotebookTextIcon,
+    label: "learning notes",
+    href: "https://chewhx.notion.site/1c51c508156a8058a50dd407bbb49bdb?v=1c51c508156a806fbf50000c77a08d3c&pvs=4",
+  },
+  { href: "https://www.github.com/chewhx", label: "github" },
+  { href: "https://www.linkedin.com/in/chewhx", label: "linkedin" },
+  // { href: "https://www.chewhx.com/cv", label: "cv" },
+];
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="max-w-xl mx-auto tracking-tight h-screen flex flex-col px-8">
+      <div className="h-18" />
+      <p className="text-xl font-medium leading-5 pointer-events-none select-none">
+        Chew Han Xiang
+      </p>
+      <p className="text-md pointer-events-none select-none text-zinc-400">
+        Software Engineer
+      </p>
+      <div className="h-8" />
+      <div className="flex flex-row flex-wrap gap-x-6 gap-y-2 text-zinc-400">
+        {links.map((item) => (
+          <AnimatedIconButton {...item} key={item.label} />
+        ))}
+      </div>
+      <div className="h-12" />
+      <a
+        className="group flex flex-row gap-2 items-center tracking-normal"
+        href="https://www.npmjs.com/package/@chewhx/google-books"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div className="h-[14px] w-[14px]">
+          <PackageIcon
+            size="14"
+            className="absolute transform opacity-100 group-hover:opacity-0 duration-300 ease-in-out"
+          />
+          <PackageOpenIcon
+            size="14"
+            className="absolute transform opacity-0 group-hover:opacity-70 duration-300 ease-in-out"
+          />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <p className="group-hover:opacity-70">Google API Wrapper</p>
+      </a>
+      <p className="text-zinc-400">
+        TypeScript wrapper for Google Books API. Simplify access to searching
+        books.
+      </p>
+      <div className="mt-auto">
+        <p className="text-sm">© {new Date().getFullYear()}</p>
+      </div>
+      <div className="h-12" />
     </div>
   );
 }
